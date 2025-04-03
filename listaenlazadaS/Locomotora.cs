@@ -22,9 +22,9 @@ namespace listaenlazadaS
                 Vagon primVag = this.Primero;
 
                 nuevo.Sig = primVag;
-                
+
                 this.Primero = nuevo;
-                
+
             }
 
         }
@@ -51,11 +51,43 @@ namespace listaenlazadaS
         {
             string listaVag = "";
             Vagon tmp = this.Primero;
-            while (tmp != null) {
+            while (tmp != null)
+            {
                 listaVag += tmp.Dato + ", ";
                 tmp = tmp.Sig;
             }
             return listaVag;
         }
+
+        public void EliminarUltimo()
+
+        {
+            if (this.Primero == null)
+
+            {
+                Console.WriteLine("No hay vagones para eliminar.");
+                return;
+            }
+            if (this.Primero.Sig == null)
+
+            {
+
+                this.Primero = null;
+
+                return;
+
+            }
+            Vagon tmp = this.Primero;
+
+            while (tmp.Sig != null && tmp.Sig.Sig != null)
+
+            {
+
+                tmp = tmp.Sig;
+
+            }
+            tmp.Sig = null;
+        }
+
     }
 }
